@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Eddit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26832bfb4212ca183e26d0f89d5b0e079bf267d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b74fecd3e54929d7a0c1d352448267ad8c25008c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Eddit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Eddit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
