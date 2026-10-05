@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Basic Webpage</title>
-	<link rel="stylesheet" href="styles.css">
+	<title>Contact</title>
 	<style>
 		body {
 			margin: 0;
@@ -24,28 +23,22 @@
 			box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
 		}
 
-		button {
+		a {
+			display: inline-block;
+			margin-top: 0.5rem;
 			padding: 0.7rem 1rem;
 			color: #fff;
 			background: #2563eb;
-			border: 0;
 			border-radius: 6px;
-			cursor: pointer;
+			text-decoration: none;
 		}
 	</style>
 </head>
 <body>
 	<main>
-		<h1>Hello, world!</h1>
-		<p id="message">A basic webpage made with HTML, CSS, and JavaScript.</p>
-		<button id="greet-button" type="button">Click me</button>
+		<h1>Contact</h1>
+		<p>Thanks for getting in touch.</p>
+		<a href="index.html">Back to home</a>
 	</main>
-
-	<script src="script.js"></script>
-	<script>
-		document.getElementById('greet-button').addEventListener('click', () => {
-			window.location.href = 'contact.html';
-		});
-	</script>
 </body>
 </html>
