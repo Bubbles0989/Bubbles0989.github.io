@@ -4,131 +4,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>About Me | Julian Eddy</title>
+	<link rel="stylesheet" href="styles.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
-	<style>
-		:root {
-			color-scheme: light;
-			font-family: 'Droid Serif', serif;
-			color: #242320;
-			background: #e9e3cc;
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		body {
-			margin: 0;
-			min-height: 100vh;
-			min-height: 100svh;
-			display: flex;
-			flex-direction: column;
-		}
-
-		.site-header {
-			width: 100%;
-			min-height: 104px;
-			padding: 24px clamp(20px, 2.25vw, 36px);
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 24px;
-			color: #242320;
-		}
-
-		.site-title {
-			color: inherit;
-			font-family: 'Droid Serif', serif;
-			font-size: clamp(20px, 2vw, 26px);
-			font-weight: 700;
-			text-decoration: none;
-		}
-
-		.site-nav {
-			display: flex;
-			align-items: center;
-			flex-wrap: wrap;
-			gap: 12px clamp(18px, 2.5vw, 40px);
-		}
-
-		.site-nav a {
-			color: #706e64;
-			font-family: Arial, sans-serif;
-			font-size: 12px;
-			letter-spacing: 1px;
-			text-decoration: none;
-		}
-
-		.site-nav a[aria-current="page"] {
-			color: #242320;
-			font-family: 'Droid Serif', serif;
-			font-weight: 700;
-		}
-
-		main {
-			width: min(calc(100% - 48px), 798px);
-			margin: clamp(40px, 6vh, 60px) auto;
-			flex: 1;
-		}
-
-		h1 {
-			margin: 0 0 24px;
-			font-size: 32px;
-			font-weight: 400;
-		}
-
-		p {
-			font-size: 16px;
-			line-height: 1.6;
-		}
-
-		main a {
-			color: inherit;
-			font-weight: 700;
-		}
-
-		footer {
-			padding: 24px;
-			font-size: 16px;
-			font-weight: 700;
-			line-height: 1.5;
-		}
-
-		footer a {
-			color: inherit;
-		}
-
-		@media (max-width: 760px) {
-			.site-header {
-				align-items: flex-start;
-				flex-direction: column;
-				padding: 22px 20px;
-			}
-
-			.site-title {
-				font-size: clamp(19px, 5vw, 22px);
-			}
-
-			.site-nav {
-				gap: 16px 22px;
-			}
-
-			main {
-				margin: 40px auto;
-			}
-		}
-	</style>
 </head>
-<body>
+<body class="about-page">
 	<header class="site-header">
 		<a class="site-title" href="index.html">Julian Eddy - Video Editor</a>
 		<nav class="site-nav" aria-label="Main navigation">
 			<a href="index.html">HOME</a>
 			<a href="about%20me.html" aria-current="page">ABOUT ME</a>
 			<a href="contact.html">CONTACT</a>
-			<a href="https://www.imdb.com/name/nm12898570/?ref_=fn_i_1" target="_blank" rel="noopener noreferrer">IMDB</a>
+			<a href="https://www.imdb.com/name/nm12898570/" target="_blank" rel="noopener noreferrer">IMDB</a>
 		</nav>
 	</header>
 	<main>
