@@ -24,12 +24,51 @@
 			min-height: 100vh;
 			display: flex;
 			flex-direction: column;
-			padding: 60px 24px;
+			padding: 0;
+		}
+
+		.site-header {
+			width: 100%;
+			min-height: 104px;
+			padding: 24px 36px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 24px;
+			color: #242320;
+		}
+
+		.site-title {
+			color: inherit;
+			font-family: 'Droid Serif', serif;
+			font-size: 26px;
+			font-weight: 700;
+			text-decoration: none;
+		}
+
+		.site-nav {
+			display: flex;
+			align-items: center;
+			gap: 40px;
+		}
+
+		.site-nav a {
+			color: #706e64;
+			font-family: Arial, sans-serif;
+			font-size: 12px;
+			letter-spacing: 1px;
+			text-decoration: none;
+		}
+
+		.site-nav a[aria-current="page"] {
+			color: #242320;
+			font-family: 'Droid Serif', serif;
+			font-weight: 700;
 		}
 
 		main {
 			width: min(100%, 798px);
-			margin: 0 auto;
+			margin: 60px auto 0;
 		}
 
 		footer {
@@ -122,8 +161,24 @@
 		}
 
 		@media (max-width: 600px) {
-			body {
-				padding: 40px 20px;
+			.site-header {
+				align-items: flex-start;
+				flex-direction: column;
+				padding: 22px 20px;
+			}
+
+			.site-title {
+				font-size: 22px;
+			}
+
+			.site-nav {
+				flex-wrap: wrap;
+				gap: 20px;
+			}
+
+			main {
+				width: calc(100% - 40px);
+				margin-top: 40px;
 			}
 
 			h1 {
@@ -143,6 +198,15 @@
 	</style>
 </head>
 <body>
+	<header class="site-header">
+		<a class="site-title" href="index.html">Julian Eddy - Video Editor</a>
+		<nav class="site-nav" aria-label="Main navigation">
+			<a href="index.html">HOME</a>
+			<a href="about%20me.html">ABOUT ME</a>
+			<a href="https://www.linkedin.com/search/results/people/?keywords=Julian%20Eddy" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+			<a href="https://www.imdb.com/find/?q=Julian%20Eddy" target="_blank" rel="noopener noreferrer">IMDB</a>
+		</nav>
+	</header>
 	<main>
 		<h1>Need an edit? Let’s talk!</h1>
 		<p>Small businesses, non-profits, mission driven projects, social advocacy organizations and independent artists, don't be afraid to reach out! Creative alignment will always be considered alongside your budget.</p>
@@ -155,8 +219,8 @@
 		</form>
 	</main>
 	<footer>
-        <p><div>Julian Eddy</div>
-		<a href="mailto:jueddy19@gmail.com">jueddy19@gmail.com</a></p>
+		<div>Julian Eddy</div>
+		<a href="mailto:jueddy19@gmail.com">jueddy19@gmail.com</a>
 	</footer>
 	<script>
 		document.getElementById('contact-form').addEventListener('submit', (event) => {
