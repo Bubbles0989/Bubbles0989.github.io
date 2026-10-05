@@ -4,14 +4,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Julian Eddy - Video Editor</title>
-	<link rel="stylesheet" href="styles.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
 	<style>
+		* {
+			box-sizing: border-box;
+		}
+
 		body {
 			margin: 0;
 			min-height: 100vh;
+			min-height: 100svh;
 			display: flex;
 			flex-direction: column;
 			font-family: 'Droid Serif', serif;
@@ -22,7 +26,7 @@
 		.site-header {
 			width: 100%;
 			min-height: 104px;
-			padding: 24px 36px;
+			padding: 24px clamp(20px, 2.25vw, 36px);
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -33,7 +37,7 @@
 		.site-title {
 			color: inherit;
 			font-family: 'Droid Serif', serif;
-			font-size: 26px;
+			font-size: clamp(20px, 2vw, 26px);
 			font-weight: 700;
 			text-decoration: none;
 		}
@@ -41,7 +45,8 @@
 		.site-nav {
 			display: flex;
 			align-items: center;
-			gap: 40px;
+			flex-wrap: wrap;
+			gap: 12px clamp(18px, 2.5vw, 40px);
 		}
 
 		.site-nav a {
@@ -64,6 +69,7 @@
 			align-items: center;
 			justify-content: center;
 			width: min(calc(100% - 48px), 1140px);
+			min-width: 0;
 			margin: 0 auto 35px;
 		}
 
@@ -81,7 +87,7 @@
 			border: 0;
 		}
 
-		@media (max-width: 700px) {
+		@media (max-width: 760px) {
 			.site-header {
 				align-items: flex-start;
 				flex-direction: column;
@@ -89,12 +95,11 @@
 			}
 
 			.site-title {
-				font-size: 22px;
+				font-size: clamp(19px, 5vw, 22px);
 			}
 
 			.site-nav {
-				flex-wrap: wrap;
-				gap: 20px;
+				gap: 16px 22px;
 			}
 
 			main {

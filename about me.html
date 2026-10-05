@@ -22,6 +22,7 @@
 		body {
 			margin: 0;
 			min-height: 100vh;
+			min-height: 100svh;
 			display: flex;
 			flex-direction: column;
 		}
@@ -29,7 +30,7 @@
 		.site-header {
 			width: 100%;
 			min-height: 104px;
-			padding: 24px 36px;
+			padding: 24px clamp(20px, 2.25vw, 36px);
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -40,7 +41,7 @@
 		.site-title {
 			color: inherit;
 			font-family: 'Droid Serif', serif;
-			font-size: 26px;
+			font-size: clamp(20px, 2vw, 26px);
 			font-weight: 700;
 			text-decoration: none;
 		}
@@ -48,7 +49,8 @@
 		.site-nav {
 			display: flex;
 			align-items: center;
-			gap: 40px;
+			flex-wrap: wrap;
+			gap: 12px clamp(18px, 2.5vw, 40px);
 		}
 
 		.site-nav a {
@@ -66,8 +68,8 @@
 		}
 
 		main {
-			width: min(100% - 48px, 798px);
-			margin: 60px auto;
+			width: min(calc(100% - 48px), 798px);
+			margin: clamp(40px, 6vh, 60px) auto;
 			flex: 1;
 		}
 
@@ -98,7 +100,7 @@
 			color: inherit;
 		}
 
-		@media (max-width: 700px) {
+		@media (max-width: 760px) {
 			.site-header {
 				align-items: flex-start;
 				flex-direction: column;
@@ -106,12 +108,11 @@
 			}
 
 			.site-title {
-				font-size: 22px;
+				font-size: clamp(19px, 5vw, 22px);
 			}
 
 			.site-nav {
-				flex-wrap: wrap;
-				gap: 20px;
+				gap: 16px 22px;
 			}
 
 			main {
