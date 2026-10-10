@@ -22,7 +22,7 @@
 	<main>
 		<h1>Need an edit? Let’s talk!</h1>
 		<p>Small businesses, non-profits, mission driven projects, social advocacy organizations and independent artists, don't be afraid to reach out! Creative alignment will always be considered alongside your budget.</p>
-		<p class="email-intro">Send me a message through this form or email me at <a href="mailto:jueddy19@gmail.com">jueddy19@gmail.com</a></p>
+		<p class="email-intro">Send me a message through this form or email me at <a href="mailto:julian@theeddit.com">julian@theeddit.com</a></p>
 		<form id="contact-form">
 			<input name="name" type="text" placeholder="Enter your name" aria-label="Your name" autocomplete="name" required>
 			<input name="email" type="email" placeholder="Enter your email" aria-label="Your email" autocomplete="email" required>
@@ -32,7 +32,7 @@
 	</main>
 	<footer>
 		<div>Julian Eddy</div>
-		<a href="mailto:jueddy19@gmail.com">jueddy19@gmail.com</a>
+		<a href="mailto:julian@theeddit.com">julian@theeddit.com</a>
 	</footer>
 	<script>
 		document.getElementById('contact-form').addEventListener('submit', (event) => {
@@ -41,7 +41,7 @@
 			const fields = new FormData(form);
 			const subject = `Website contact from ${fields.get('name')}`;
 			const body = `Name: ${fields.get('name')}\nEmail: ${fields.get('email')}\n\n${fields.get('message')}`;
-			window.location.href = `mailto:jueddy19@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+			window.location.href = `mailto:julian@theeddit.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 		});
 	</script>
 </body>
