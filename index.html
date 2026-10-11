@@ -14,6 +14,7 @@
 		<a class="site-title" href="index.html">Julian Eddy - Video Editor</a>
 		<nav class="site-nav" aria-label="Main navigation">
 			<a href="index.html" aria-current="page">HOME</a>
+			<a href="src/work.html">WORK</a>
 			<a href="src/about%20me.html">ABOUT ME</a>
 			<a href="src/contact.html">CONTACT</a>
 			<a href="https://www.imdb.com/name/nm12898570/" target="_blank" rel="noopener noreferrer">IMDB</a>
@@ -42,13 +43,17 @@
 		<div>Julian Eddy</div>
 		<a href="mailto:julian@theeddit.com">julian@theeddit.com</a>
 	</footer>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script>
-		document.getElementById('home-contact-form').addEventListener('submit', (event) => {
-			event.preventDefault();
-			const fields = new FormData(event.currentTarget);
-			const subject = `Website contact from ${fields.get('name')}`;
-			const body = `Name: ${fields.get('name')}\n\n${fields.get('message')}`;
-			window.location.href = `mailto:julian@theeddit.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+		$(function () {
+			$('#home-contact-form').on('submit', function (event) {
+				event.preventDefault();
+				const name = $(this).find('[name="name"]').val();
+				const message = $(this).find('[name="message"]').val();
+				const subject = `Website contact from ${name}`;
+				const body = `Name: ${name}\n\n${message}`;
+				window.location.href = `mailto:julian@theeddit.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+			});
 		});
 	</script>
 </body>

@@ -249,6 +249,109 @@ footer a {
 	line-height: 1.6;
 }
 
+.work-page {
+	background: #e6e0c8;
+	color: #242320;
+}
+
+.work-page main {
+	flex: 1;
+	width: min(calc(100% - 48px), 1140px);
+	margin: clamp(40px, 7vh, 72px) auto 64px;
+}
+
+.work-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	margin-bottom: 24px;
+}
+
+.work-heading h1 {
+	margin: 0;
+	font-family: 'Droid Serif', serif;
+	font-size: clamp(28px, 4vw, 38px);
+	font-weight: 400;
+}
+
+.carousel-controls {
+	display: flex;
+	gap: 10px;
+}
+
+.carousel-button {
+	display: grid;
+	width: 44px;
+	height: 44px;
+	place-items: center;
+	border: 1px solid #706e64;
+	border-radius: 50%;
+	background: transparent;
+	color: #242320;
+	font: inherit;
+	font-size: 22px;
+	cursor: pointer;
+}
+
+.carousel-button:hover:not(:disabled) {
+	background: #d8d2ba;
+}
+
+.carousel-button:disabled {
+	color: #aaa696;
+	border-color: #c5bfaa;
+	cursor: default;
+}
+
+.carousel-button:focus-visible,
+.work-card:focus-visible {
+	outline: 3px solid #706e64;
+	outline-offset: 4px;
+}
+
+.work-carousel {
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	scroll-snap-type: x mandatory;
+}
+
+.work-carousel::-webkit-scrollbar {
+	display: none;
+}
+
+.work-carousel-track {
+	display: flex;
+	gap: 22px;
+	padding: 4px 4px 12px;
+}
+
+.work-card {
+	flex: 0 0 calc((100% - 44px) / 3);
+	color: inherit;
+	text-decoration: none;
+	scroll-snap-align: start;
+}
+
+.work-placeholder {
+	display: grid;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	place-items: center;
+	background: #d8d2ba;
+	color: #302f2b;
+	font-family: 'Droid Serif', serif;
+	font-size: clamp(20px, 2.5vw, 30px);
+	text-transform: lowercase;
+	transition: background-color 160ms ease, color 160ms ease;
+}
+
+.work-card:hover .work-placeholder {
+	background: #302f2b;
+	color: #e9e3cc;
+}
+
 .contact-page p.email-intro {
 	margin-bottom: 18px;
 }
@@ -334,6 +437,15 @@ footer a {
 		gap: 16px 22px;
 	}
 
+	.work-page main {
+		width: calc(100% - 40px);
+		margin-top: 36px;
+	}
+
+	.work-card {
+		flex-basis: calc((100% - 22px) / 2);
+	}
+
 	.home-page main {
 		width: calc(100% - 40px);
 		margin-bottom: 24px;
@@ -359,6 +471,14 @@ footer a {
 }
 
 @media (max-width: 560px) {
+	.work-heading {
+		align-items: flex-end;
+	}
+
+	.work-card {
+		flex-basis: 86%;
+	}
+
 	.contact-page form {
 		grid-template-columns: 1fr;
 		gap: 16px;

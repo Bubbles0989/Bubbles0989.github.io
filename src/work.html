@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work</title>
-    <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Work | Julian Eddy</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="work-page">
+	<header class="site-header">
+		<a class="site-title" href="../index.html">Julian Eddy - Video Editor</a>
+		<nav class="site-nav" aria-label="Main navigation">
+			<a href="../index.html">HOME</a>
+			<a href="work.html" aria-current="page">WORK</a>
+			<a href="about%20me.html">ABOUT ME</a>
+			<a href="contact.html">CONTACT</a>
+			<a href="https://www.imdb.com/name/nm12898570/" target="_blank" rel="noopener noreferrer">IMDB</a>
+		</nav>
+	</header>
+	<main>
+		<section class="work-section" aria-labelledby="work-title">
+			<div class="work-heading">
+				<h1 id="work-title">Selected Work</h1>
+				<div class="carousel-controls" aria-label="Carousel controls">
+					<button class="carousel-button" type="button" data-direction="previous" aria-label="Previous categories" disabled>
+						<span aria-hidden="true">&larr;</span>
+					</button>
+					<button class="carousel-button" type="button" data-direction="next" aria-label="Next categories">
+						<span aria-hidden="true">&rarr;</span>
+					</button>
+				</div>
+			</div>
+			<div class="work-carousel" aria-label="Work categories">
+				<div class="work-carousel-track">
+					<a class="work-card" href="film.html" aria-label="Film work">
+						<span class="work-placeholder">film</span>
+					</a>
+					<a class="work-card" href="series.html" aria-label="Series work">
+						<span class="work-placeholder">series</span>
+					</a>
+					<a class="work-card" href="social-media.html" aria-label="Social media work">
+						<span class="work-placeholder">social media</span>
+					</a>
+					<a class="work-card" href="branded.html" aria-label="Branded work">
+						<span class="work-placeholder">branded</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div>Julian Eddy</div>
+		<a href="mailto:julian@theeddit.com">julian@theeddit.com</a>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script>
+		$(function () {
+			const $carousel = $('.work-carousel');
+			const $track = $('.work-carousel-track');
+			const $previousButton = $('[data-direction="previous"]');
+			const $nextButton = $('[data-direction="next"]');
 
+			function updateCarouselControls() {
+				const carousel = $carousel[0];
+				const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+				$previousButton.prop('disabled', carousel.scrollLeft <= 5);
+				$nextButton.prop('disabled', carousel.scrollLeft >= maxScroll - 1);
+			}
+
+			function scrollCarousel(direction) {
+				const $card = $track.find('.work-card').first();
+				const gap = Number.parseFloat(getComputedStyle($track[0]).columnGap) || 0;
+				const distance = $card.outerWidth() + gap;
+				$carousel.stop().animate({
+					scrollLeft: $carousel.scrollLeft() + direction * distance
+				}, 400);
+			}
+
+			$previousButton.on('click', () => scrollCarousel(-1));
+			$nextButton.on('click', () => scrollCarousel(1));
+			$carousel.on('scroll', updateCarouselControls);
+			$(window).on('resize', updateCarouselControls);
+			updateCarouselControls();
+		});
+	</script>
 </body>
 </html>
