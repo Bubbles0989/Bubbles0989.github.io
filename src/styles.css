@@ -280,26 +280,25 @@ footer a {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
 	grid-template-areas: "photos copy";
-	align-items: stretch;
+	align-items: center;
 	gap: clamp(20px, 3vw, 42px);
 }
 
 .about-portrait-stack {
 	grid-area: photos;
-	display: flex;
-	flex-direction: column;
-	gap: clamp(14px, 2vw, 24px);
-	min-height: 0;
 }
 
 .about-portrait {
 	display: block;
 	width: 100%;
-	height: 0;
-	flex: 1 1 0;
-	min-height: 0;
+	max-height: 620px;
+	aspect-ratio: 4 / 5;
 	object-fit: cover;
 	object-position: center;
+}
+
+.about-cat {
+	display: none;
 }
 
 .about-copy {
@@ -574,6 +573,7 @@ footer a {
 	}
 
 	.about-cat {
+		display: block;
 		grid-area: cat;
 		justify-self: center;
 		aspect-ratio: 1;
