@@ -86,7 +86,7 @@ footer a {
 	width: min(calc(100% - 48px), 850px);
 	margin: 0 auto 48px;
 	padding-top: 32px;
-	text-align: center;
+	text-align: left;
 }
 
 .resume-content section {
@@ -110,9 +110,7 @@ footer a {
 }
 
 .resume-entries {
-	width: fit-content;
-	max-width: 100%;
-	margin: 0 auto;
+	margin: 0;
 	padding-left: 20px;
 	text-align: left;
 }
@@ -156,7 +154,7 @@ footer a {
 }
 
 .home-contact h2 {
-	margin: 0 0 14px;
+	margin: 14px 0 14px;
 	font-size: 22px;
 	font-weight: 400;
 }

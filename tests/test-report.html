@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Static Site Test Report</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; color: #202124; background: #f5f7fa; }
+    body { max-width: 760px; margin: 48px auto; padding: 0 20px; }
+    main { padding: 28px; border: 1px solid #dfe3e8; border-radius: 12px; background: white; }
+    h1 { margin-top: 0; }
+    .summary { display: flex; gap: 24px; flex-wrap: wrap; margin: 20px 0; }
+    .summary strong { font-size: 1.25rem; }
+    progress { width: 100%; height: 16px; accent-color: #188038; }
+    ul { list-style: none; padding: 0; margin: 24px 0 0; }
+    .check { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #e8eaed; }
+    .check-name { flex: 1; }
+    .indicator { width: 12px; height: 12px; flex: none; border-radius: 50%; background: #9aa0a6; }
+    .passed .indicator { background: #188038; }
+    .failed .indicator { background: #d93025; }
+    .not-run .indicator { background: #f9ab00; }
+    .passed .status { color: #137333; }
+    .failed .status { color: #c5221f; }
+    .not-run .status { color: #9a6700; }
+    .note { color: #5f6368; font-size: .9rem; }
+    .overall.failed { color: #c5221f; }
+    .overall.incomplete { color: #9a6700; }
+    .overall.passed { color: #137333; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Static Site Test Report</h1>
+    <p class="note">Checklist coverage means the share of configured workflow/site requirements that ran; it is not source-code line coverage.</p>
+    <div class="summary">
+      <span>Checklist coverage <strong>100%</strong></span>
+      <span>Passed <strong>4</strong></span>
+      <span>Failed <strong>0</strong></span>
+    </div>
+    <progress value="100" max="100" aria-label="Checklist coverage">100%</progress>
+    <ul>
+        <li class="check passed">
+          <span class="indicator" aria-hidden="true"></span>
+          <span class="check-name">Pages workflow deploys the repository root</span>
+          <strong class="status">PASS</strong>
+        </li>
+        <li class="check passed">
+          <span class="indicator" aria-hidden="true"></span>
+          <span class="check-name">Deployment waits for the test job</span>
+          <strong class="status">PASS</strong>
+        </li>
+        <li class="check passed">
+          <span class="indicator" aria-hidden="true"></span>
+          <span class="check-name">Published root contains the homepage and custom-domain file</span>
+          <strong class="status">PASS</strong>
+        </li>
+        <li class="check passed">
+          <span class="indicator" aria-hidden="true"></span>
+          <span class="check-name">Every local HTML link and asset points to a published file</span>
+          <strong class="status">PASS</strong>
+        </li>
+    </ul>
+    <p class="overall passed">Overall result: PASS</p>
+  </main>
+</body>
+</html>
