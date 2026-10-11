@@ -294,14 +294,8 @@ footer a {
 	cursor: pointer;
 }
 
-.carousel-button:hover:not(:disabled) {
+.carousel-button:hover {
 	background: #d8d2ba;
-}
-
-.carousel-button:disabled {
-	color: #aaa696;
-	border-color: #c5bfaa;
-	cursor: default;
 }
 
 .carousel-button:focus-visible,
@@ -312,9 +306,7 @@ footer a {
 
 .work-carousel {
 	overflow-x: auto;
-	scroll-behavior: smooth;
 	scrollbar-width: none;
-	scroll-snap-type: x mandatory;
 }
 
 .work-carousel::-webkit-scrollbar {
@@ -331,7 +323,6 @@ footer a {
 	flex: 0 0 calc((100% - 44px) / 3);
 	color: inherit;
 	text-decoration: none;
-	scroll-snap-align: start;
 }
 
 .work-placeholder {

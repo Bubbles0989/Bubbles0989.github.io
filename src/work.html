@@ -25,7 +25,7 @@
 			<div class="work-heading">
 				<h1 id="work-title">Selected Work</h1>
 				<div class="carousel-controls" aria-label="Carousel controls">
-					<button class="carousel-button" type="button" data-direction="previous" aria-label="Previous categories" disabled>
+					<button class="carousel-button" type="button" data-direction="previous" aria-label="Previous categories">
 						<span aria-hidden="true">&larr;</span>
 					</button>
 					<button class="carousel-button" type="button" data-direction="next" aria-label="Next categories">
@@ -62,28 +62,69 @@
 			const $track = $('.work-carousel-track');
 			const $previousButton = $('[data-direction="previous"]');
 			const $nextButton = $('[data-direction="next"]');
+			const $originalCards = $track.children('.work-card');
+			const cardCount = $originalCards.length;
+			let isAnimating = false;
 
-			function updateCarouselControls() {
-				const carousel = $carousel[0];
-				const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-				$previousButton.prop('disabled', carousel.scrollLeft <= 5);
-				$nextButton.prop('disabled', carousel.scrollLeft >= maxScroll - 1);
+			function getCardStep() {
+				const $cards = $track.children('.work-card');
+				return $cards[1].offsetLeft - $cards[0].offsetLeft;
+			}
+
+			function createClones() {
+				return $originalCards.clone()
+					.attr('aria-hidden', 'true')
+					.attr('inert', '');
+			}
+
+			$track.prepend(createClones());
+			$track.append(createClones());
+
+			function normalizeCarouselPosition() {
+				const step = getCardStep();
+				const scrollLeft = $carousel.scrollLeft();
+
+				if (scrollLeft <= 1) {
+					$carousel.scrollLeft(cardCount * step);
+				} else if (scrollLeft >= cardCount * 2 * step - 1) {
+					$carousel.scrollLeft(cardCount * step);
+				}
 			}
 
 			function scrollCarousel(direction) {
-				const $card = $track.find('.work-card').first();
-				const gap = Number.parseFloat(getComputedStyle($track[0]).columnGap) || 0;
-				const distance = $card.outerWidth() + gap;
-				$carousel.stop().animate({
-					scrollLeft: $carousel.scrollLeft() + direction * distance
-				}, 400);
+				if (isAnimating) {
+					return;
+				}
+
+				isAnimating = true;
+				$carousel.animate({
+					scrollLeft: $carousel.scrollLeft() + direction * getCardStep()
+				}, 350, function () {
+					normalizeCarouselPosition();
+					isAnimating = false;
+				});
+			}
+
+			function repositionAfterResize() {
+				if (isAnimating) {
+					return;
+				}
+
+				const step = getCardStep();
+				const currentIndex = Math.round($carousel.scrollLeft() / step) - cardCount;
+				const wrappedIndex = (currentIndex % cardCount + cardCount) % cardCount;
+				$carousel.scrollLeft((cardCount + wrappedIndex) * step);
 			}
 
 			$previousButton.on('click', () => scrollCarousel(-1));
 			$nextButton.on('click', () => scrollCarousel(1));
-			$carousel.on('scroll', updateCarouselControls);
-			$(window).on('resize', updateCarouselControls);
-			updateCarouselControls();
+			$carousel.on('scroll', function () {
+				if (!isAnimating) {
+					normalizeCarouselPosition();
+				}
+			});
+			$(window).on('resize', repositionAfterResize);
+			$carousel.scrollLeft(cardCount * getCardStep());
 		});
 	</script>
 </body>
