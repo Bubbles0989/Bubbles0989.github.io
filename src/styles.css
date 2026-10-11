@@ -278,12 +278,14 @@ footer a {
 
 .about-blurb {
 	display: grid;
-	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.8fr) minmax(0, 0.8fr);
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr) minmax(0, 1fr);
+	grid-template-areas: "portrait copy cat";
 	align-items: center;
 	gap: clamp(20px, 3vw, 42px);
 }
 
 .about-portrait {
+	grid-area: portrait;
 	display: block;
 	width: 100%;
 	max-height: 620px;
@@ -293,10 +295,12 @@ footer a {
 }
 
 .about-cat {
+	grid-area: cat;
 	justify-self: end;
 }
 
 .about-copy {
+	grid-area: copy;
 	padding: clamp(24px, 4vw, 40px) clamp(22px, 3vw, 34px);
 	border: 2px solid var(--color-orange);
 	border-radius: 18px;
@@ -543,6 +547,10 @@ footer a {
 
 	.about-blurb {
 		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			"portrait"
+			"copy"
+			"cat";
 		gap: 20px;
 	}
 
