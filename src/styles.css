@@ -278,7 +278,7 @@ footer a {
 
 .about-blurb {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr) minmax(0, 1fr);
+	grid-template-columns: minmax(0, 1.08fr) minmax(0, 1.76fr) minmax(0, 1.08fr);
 	grid-template-areas: "portrait copy cat";
 	align-items: center;
 	gap: clamp(20px, 3vw, 42px);
