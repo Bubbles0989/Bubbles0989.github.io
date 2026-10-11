@@ -278,9 +278,9 @@ footer a {
 
 .about-blurb {
 	display: grid;
-	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.8fr) minmax(0, 0.8fr);
 	align-items: center;
-	gap: clamp(28px, 6vw, 76px);
+	gap: clamp(20px, 3vw, 42px);
 }
 
 .about-portrait {
@@ -290,6 +290,10 @@ footer a {
 	aspect-ratio: 4 / 5;
 	object-fit: cover;
 	object-position: center;
+}
+
+.about-cat {
+	justify-self: end;
 }
 
 .about-copy {
@@ -549,6 +553,11 @@ footer a {
 		max-height: none;
 		aspect-ratio: auto;
 		margin: 0 auto;
+	}
+
+	.about-cat {
+		justify-self: center;
+		aspect-ratio: 1;
 	}
 
 	.about-copy {
