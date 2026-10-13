@@ -76,6 +76,100 @@ body {
 	color: var(--color-brown);
 }
 
+.site-menu {
+	position: fixed;
+	top: clamp(20px, 3vw, 32px);
+	right: clamp(24px, 4vw, 56px);
+	z-index: 1030;
+	font-family: var(--font-sans);
+}
+
+.site-menu summary {
+	display: grid;
+	width: 48px;
+	height: 48px;
+	place-items: center;
+	border: 1px solid var(--color-orange);
+	border-radius: 50%;
+	background: var(--color-cream);
+	color: var(--color-brown);
+	cursor: pointer;
+	list-style: none;
+}
+
+.site-menu summary::-webkit-details-marker {
+	display: none;
+}
+
+.site-menu summary:focus-visible,
+.site-menu-panel a:focus-visible {
+	outline: 3px solid var(--color-blue);
+	outline-offset: 4px;
+}
+
+.site-menu-icon {
+	display: grid;
+	gap: 5px;
+	width: 20px;
+}
+
+.site-menu-icon span {
+	display: block;
+	height: 2px;
+	background: currentColor;
+	transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.site-menu[open] .site-menu-icon span:first-child {
+	transform: translateY(7px) rotate(45deg);
+}
+
+.site-menu[open] .site-menu-icon span:nth-child(2) {
+	opacity: 0;
+}
+
+.site-menu[open] .site-menu-icon span:last-child {
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+.site-menu-label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.site-menu-panel {
+	position: absolute;
+	top: calc(100% + 10px);
+	right: 0;
+	display: grid;
+	min-width: 190px;
+	gap: 2px;
+	padding: 10px;
+	border: 1px solid var(--color-orange);
+	border-radius: 12px;
+	background: var(--color-cream);
+	box-shadow: 0 8px 24px rgb(59 49 34 / 16%);
+}
+
+.site-menu-panel a {
+	padding: 10px 12px;
+	border-radius: 7px;
+	color: var(--color-brown);
+	text-decoration: none;
+}
+
+.site-menu-panel a:hover {
+	background: var(--color-yellow);
+	color: var(--color-brown);
+}
+
 footer {
 	padding: 24px;
 	font-size: 16px;
@@ -597,11 +691,16 @@ footer a {
 	.site-header {
 		align-items: flex-start;
 		flex-direction: column;
-		padding: 22px 20px;
+		padding: 22px 76px 22px 20px;
 	}
 
 	.site-title {
-		font-size: clamp(42px, 11vw, 64px);
+		font-size: clamp(36px, 11vw, 64px);
+	}
+
+	.site-menu {
+		top: 22px;
+		right: 20px;
 	}
 
 	.site-nav {
