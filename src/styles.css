@@ -267,6 +267,39 @@ footer a {
 	border: 0;
 }
 
+.home-work-links {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 12px;
+	margin-top: 24px;
+}
+
+.home-work-links a {
+	display: grid;
+	min-height: 56px;
+	place-items: center;
+	padding: 10px 14px;
+	border-radius: 12px;
+	background: var(--color-yellow);
+	color: var(--color-brown);
+	font-family: var(--font-serif);
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 160ms ease, color 160ms ease;
+}
+
+.home-work-links a:hover {
+	background: var(--color-orange);
+	color: var(--color-cream);
+}
+
+.home-work-links a:focus-visible {
+	outline: 3px solid var(--color-blue);
+	outline-offset: 4px;
+}
+
 .home-contact {
 	width: min(100%, 620px);
 	margin: 28px auto 0;
@@ -725,6 +758,12 @@ footer a {
 
 	.home-contact {
 		margin-top: 22px;
+	}
+
+	.home-work-links {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+		margin-top: 18px;
 	}
 
 	.contact-page main {
